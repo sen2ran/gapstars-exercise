@@ -1,0 +1,100 @@
+1: current
+2: sleep
+6: Fizz
+7: It shouldn't break anything!
+8: cap
+9: Fizz
+10: Buzz
+11: serious
+12: Fizz
+4: mountain
+13: It shouldn't break anything!
+14: journey
+15: FizzBuzz
+3: Fizz
+16: grass
+17: tax
+19: leader
+18: Fizz
+21: Fizz
+22: pleasant
+24: Fizz
+23: national
+26: element
+27: Fizz
+28: general
+25: Buzz
+29: It shouldn't break anything!
+5: Buzz
+20: Buzz
+31: It shouldn't break anything!
+32: It shouldn't break anything!
+34: roll
+30: FizzBuzz
+36: Fizz
+37: famous
+40: Buzz
+38: It shouldn't break anything!
+42: Fizz
+41: strike
+33: Fizz
+44: building
+45: FizzBuzz
+46: practical
+48: Fizz
+43: weight
+49: It shouldn't break anything!
+53: screen
+35: Buzz
+51: Fizz
+52: outside
+56: same
+57: Fizz
+39: Fizz
+58: flew
+55: Buzz
+50: Buzz
+59: respect
+60: FizzBuzz
+54: Fizz
+47: send
+63: Fizz
+64: image
+66: Fizz
+68: bill
+65: Buzz
+62: bone
+67: It shouldn't break anything!
+69: Fizz
+61: east
+75: FizzBuzz
+74: It shouldn't break anything!
+70: Buzz
+76: split
+71: adult
+79: writing
+73: plant
+77: break
+80: Buzz
+78: Fizz
+82: honor
+81: Fizz
+84: Fizz
+72: Fizz
+86: seven
+87: Fizz
+88: score
+89: attack
+90: FizzBuzz
+92: dangerous
+94: It shouldn't break anything!
+91: shop
+93: Fizz
+95: Buzz
+96: Fizz
+100: Buzz
+99: Fizz
+97: It shouldn't break anything!
+98: It shouldn't break anything!
+83: food
+85: Buzz

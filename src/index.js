@@ -3,42 +3,59 @@ const fs = require("fs");
 
 console.log('It works!');
 
-// YOUR CODE HERE
+const getFizzBuzz = n => `${n % 15 === 0 ? "FizzBuzz" : n % 3 === 0 ? "Fizz" : n % 5 === 0 ? "Buzz" : ''}`;
 
+function dataLog(outFile, line) {
+  line += '\n';
+  fs.appendFile(outFile, line, function (err) {
+    if (err) throw err;
+  });
+}
 
 async function printgetRandomWordSync() {
   for (let i = 1; i <= 100; i++) {
     try {
-      fs.appendFileSync("textSync.txt", `${i} : ${i % 15 === 0 ? "FizzBuzz" : i % 3 === 0 ? "Fizz" : i % 5 === 0 ? "Buzz" : getRandomWordSync({ withErrors: true })} \n`)   
+      dataLog("textSync.txt", `${i} : ${getFizzBuzz(i) || getRandomWordSync({ withErrors: true })} \n`)
     } catch (error) {
-      fs.appendFileSync("textSync.txt", `${ i } : It shouldn't break anything! \n`)    
+      dataLog("textSync.txt", `${i} : It shouldn't break anything! \n`)
     }
   }
 }
-
 
 async function printgetRandomWordAsync() {
   for (let k = 1; k <= 100; k++) {
     try {
-      fs.appendFileSync("textAsync.txt", `${k} : ${k % 15 === 0 ? "FizzBuzz" : k % 3 === 0 ? "Fizz" : k % 5 === 0 ? "Buzz" : await getRandomWord({ withErrors: true })} \n`)       
+      dataLog("textAsync.txt", `${k} : ${getFizzBuzz(k) || await getRandomWord({ withErrors: true })} \n`)
     } catch (error) {
-      fs.appendFileSync("textAsync.txt", `${ k } : It shouldn't break anything! \n`)   
+      dataLog("textAsync.txt", `${k} : It shouldn't break anything! \n`)
     }
-
   }
 }
 
 async function printgetRandomWordSlow() {
-  for (let k = 1; k <= 100; k++) {
+  // let TmpArray = []
+  // for (let k = 1; k <= 100; k++) {
+  //   getRandomWord({ withErrors: true, slow: true }).then(word => {
+  //     TmpArray[k - 1] = `${k} : ${getFizzBuzz(k) || word}`
+  //   }).catch(error => {
+  //     TmpArray[k - 1] = `${k} : It shouldn't break anything!`
+  //   })
+  // }
+  // setTimeout(() => {
+  //   console.log(TmpArray);
+  // }, 200);
+  const promises = Array(100).fill().map(async (v, i) => {
+    i++;
     try {
-      fs.appendFileSync("textSlow.txt", `${k} : ${k % 15 === 0 ? "FizzBuzz" : k % 3 === 0 ? "Fizz" : k % 5 === 0 ? "Buzz" : await getRandomWord({withErrors: true,   slow: true })} \n`)       
-    } catch (error) {
-      fs.appendFileSync("textSlow.txt", `${ k } : It shouldn't break anything! \n`)   
+      return `${i}: ${getFizzBuzz(i) || await getRandomWord({ withErrors: true, slow: true })}`;
+    } catch (err) {
+      return `${i}: It shouldn't break anything!`;
     }
-
-  }
+  });
+  let printRandomWordSlowArray = await Promise.all(promises)
+  printRandomWordSlowArray.map(word => dataLog("textSlow.txt", word))
 }
 
 printgetRandomWordSync();
 printgetRandomWordAsync();
-// printgetRandomWordSlow();
+printgetRandomWordSlow();
